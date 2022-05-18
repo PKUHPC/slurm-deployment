@@ -100,7 +100,7 @@ rpmbuild -ta -with lua -with hwloc slurm-17.11.2.tar.bz2
 <p>Now, we will move the Slurm rpms for installation for the server and computer nodes.</p>
 <pre crayon="false" class="">mkdir /nfs/slurm-rpms
 cp /root/rpmbuild/BUILD/slurm-17.11.2/src/plugins/auth/munge/.libs/auth_munge.so /usr/lib64/slurm/
-cp /root/rpmbuild/BUILD/slurm-19.05.0/src/plugins/cred/munge/.libs/cred_munge.so /usr/lib64/slurm/</pre>
+cp /root/rpmbuild/BUILD/slurm-17.11.2/src/plugins/cred/munge/.libs/cred_munge.so /usr/lib64/slurm/</pre>
 <p>On every node that you want to be a server and compute node, we install those rpms. In our case, I want every node to be a compute node.</p>
 <pre crayon="false" class="">yum --nogpgcheck localinstall slurm-17.11.2-1.el7.centos.x86_64.rpm slurm-devel-17.11.2-1.el7.centos.x86_64.rpm 
 	slurm-munge-17.11.2-1.el7.centos.x86_64.rpm slurm-perlapi-17.11.2-1.el7.centos.x86_64.rpm slurm-plugins-17.11.2-1.el7.centos.x86_64.rpm 
